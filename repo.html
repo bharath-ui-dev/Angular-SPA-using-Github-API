@@ -1,0 +1,24 @@
+
+<h2>{{repo.name}}</h2>
+<a class="btn btn-warning" href="#/main">Back to search</a>
+<a class="btn btn-warning" href="#/user/{{repo.owner.login}}">Back to {{repo.owner.login}}</a>
+<h3>Respository contents</h3>
+<div>
+    No of open issues: {{repo.open_issues_count}}
+</div>
+<div class="container">
+    <table class="table table-responsive table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="file in repo.content | orderBy:filetype">
+          <td><a href="{{file.hmtl_url}}" target="_blank">{{file.name}}</a></td>
+          <td>{{file.type}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
